@@ -3,11 +3,15 @@
   <mat-form-field>
     <mat-label>Codigo CIF</mat-label>
     <input matInput formControlName="cif" >
+    <mat-error *ngIf="miform.get('cif')?.hasError('pattern')">No cumple los requisitos</mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Nombre y Apellidos</mat-label>
     <input matInput formControlName="nombre" >
+    <mat-error *ngIf="miform.get('nombre')?.hasError('minlength')">Nombre demasiado corto</mat-error>
+    <mat-error *ngIf="miform.get('cif')?.hasError('maxlength')">Nombre demasiado largo</mat-error>
+
   </mat-form-field>
 
   <mat-form-field>
